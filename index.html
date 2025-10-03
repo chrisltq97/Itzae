@@ -45,7 +45,7 @@
     body {
       margin: 0;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--navy);
+      color: var(--ocean);
       background-color: var(--ivory);
       line-height: 1.6;
       min-height: 100vh;
@@ -69,7 +69,7 @@
       font-family: 'Playfair Display', 'Times New Roman', serif;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--navy);
+      color: var(--ocean);
       margin-top: 0;
     }
 
@@ -94,9 +94,9 @@
     .header-inner {
       max-width: min(1100px, 92vw);
       margin: 0 auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
       padding: 1rem 0;
       position: relative;
@@ -110,6 +110,8 @@
       color: #1E3A5F;
       text-decoration: none;
       white-space: nowrap;
+      grid-column: 1 / -1;
+      justify-self: center;
     }
 
     .menu-toggle {
@@ -123,7 +125,14 @@
       background: none;
       color: var(--ocean);
       cursor: pointer;
-      transition: border-color 160ms ease;
+      transition: border-color 160ms ease, color 160ms ease;
+      grid-column: 2;
+      justify-self: end;
+    }
+
+    .menu-toggle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
     }
 
     .menu-toggle:focus-visible {
@@ -178,6 +187,8 @@
       font-size: 0.85rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      grid-column: 2;
+      justify-self: end;
     }
 
     .primary-nav a {
@@ -204,12 +215,13 @@
 
     .primary-nav a:focus-visible,
     .primary-nav a:hover {
-      color: var(--navy);
+      color: var(--gold);
     }
 
     .primary-nav a:focus-visible::after,
     .primary-nav a:hover::after {
       transform: scaleX(1);
+      background: var(--gold);
     }
 
     main {
@@ -226,14 +238,43 @@
       overflow: hidden;
       text-align: center;
       scroll-margin-top: 120px;
+      color: var(--ocean);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('IMG_5846.jpeg'); /* alt="Luxury yacht in Costa Rica" */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: attr(data-alt);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .hero-content {
-      max-width: 620px;
+      width: min(100%, 620px);
       position: relative;
-      z-index: 1;
+      z-index: 2;
       display: grid;
       gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.75);
+      padding: clamp(1.75rem, 4vw, 3rem);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(15, 42, 61, 0.12);
     }
 
     .hero h1 {
@@ -257,6 +298,7 @@
       stroke: var(--gold);
       fill: none;
       stroke-width: 1.6;
+      z-index: 1;
     }
 
     .motif.sun {
@@ -304,6 +346,8 @@
     .primary-button:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 18px rgba(15, 42, 61, 0.08);
+      background-color: var(--gold);
+      color: var(--ivory);
     }
 
     .cta small {
@@ -503,6 +547,8 @@
     .form-group button:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 18px rgba(15, 42, 61, 0.08);
+      background-color: var(--gold);
+      color: var(--ivory);
     }
 
     .form-group button:focus-visible {
@@ -713,9 +759,36 @@
         padding-top: 6rem;
       }
 
+      .hero-content {
+        padding: clamp(1.5rem, 6vw, 2.25rem);
+        gap: 1.25rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
       footer nav {
         flex-direction: column;
         gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 6.5rem 1.25rem 4rem;
+      }
+
+      .hero-content {
+        padding: 1.5rem;
+      }
+
+      .primary-button {
+        width: 100%;
       }
     }
 
@@ -751,7 +824,7 @@
     </header>
 
     <main>
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title" data-alt="Luxury yacht in Costa Rica">
         <svg class="motif sun" viewBox="0 0 120 120" aria-hidden="true">
           <path d="M60 10l6 18 18-6-12 14 18 6-18 6 12 14-18-6-6 18-6-18-18 6 12-14-18-6 18-6-12-14 18 6z" opacity="0.7"/>
         </svg>
@@ -763,7 +836,7 @@
           <h1 id="hero-title">A new way to experience Costa Rica</h1>
           <p class="subheadline">Curated adventures at sea and in the wild. Designed with heart. Guided by tradition.</p>
           <div class="cta">
-            <a class="primary-button" href="#join">Join the list</a>
+            <a class="primary-button" href="#join">Join the List</a>
             <small>Private launch invitations only</small>
           </div>
           <p class="countdown" data-countdown>Launching soon — December 15</p>
