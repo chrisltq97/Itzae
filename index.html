@@ -615,40 +615,6 @@
       stroke: var(--gold);
     }
 
-    .gallery {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      width: min(100%, 900px);
-    }
-
-    .card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid rgba(15, 42, 61, 0.08);
-      transition: transform 220ms ease, border-color 220ms ease;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15, 42, 61, 0.0) 30%, rgba(15, 42, 61, 0.22));
-      pointer-events: none;
-    }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      border-color: var(--gold);
-    }
-
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     .join-section {
       background-color: rgba(30, 58, 95, 0.05);
     }
@@ -1053,21 +1019,6 @@
           <h2 id="roots-title">Chorotega roots</h2>
         </div>
         <p>We collaborate with local communities and draw inspiration from Nicoya’s ancient craft to create journeys with real meaning. <a href="#" role="button">Learn more soon</a></p>
-      </section>
-
-      <section class="section" id="gallery" aria-labelledby="gallery-title">
-        <h2 id="gallery-title">Gallery tease</h2>
-        <div class="gallery">
-          <figure class="card">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Sunlit waves crashing on Costa Rica shore" loading="lazy">
-          </figure>
-          <figure class="card">
-            <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80" alt="Tropical forest with waterfall" loading="lazy">
-          </figure>
-          <figure class="card">
-            <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80" alt="Luxury boat on calm ocean at sunset" loading="lazy">
-          </figure>
-        </div>
       </section>
 
       <section class="section join-section" id="contact" aria-labelledby="join-title">
