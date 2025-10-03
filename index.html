@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Itzae Experience — Coming Soon</title>
+  <meta name="description" content="The Itzae Experience curates luxury adventures in Costa Rica inspired by Chorotega heritage. Join the private launch list for ocean and jungle journeys.">
+  <meta property="og:title" content="The Itzae Experience — Coming Soon">
+  <meta property="og:description" content="Curated adventures at sea and in the wild. Designed with heart. Guided by tradition.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/itzae">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><mask id='m'><rect width='64' height='64' fill='white'/><circle cx='32' cy='32' r='18' fill='black'/></mask></defs><rect width='64' height='64' rx='12' ry='12' fill='%23C4A462' mask='url(%23m)'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #F7F3EB;
+      --navy: #0F2A3D;
+      --ocean: #1E3A5F;
+      --gold: #C4A462;
+      --forest: #1F4738;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--navy);
+      background-color: var(--ivory);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', 'Times New Roman', serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .brand-emblem {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      font-weight: 500;
+      pointer-events: auto;
+    }
+
+    .brand-emblem svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 6rem 1.5rem 4rem;
+      background-color: var(--ivory);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 620px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw + 1.5rem, 3.8rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      margin: 0 auto;
+      color: var(--ocean);
+    }
+
+    .hero .subheadline {
+      max-width: 520px;
+    }
+
+    .motif {
+      position: absolute;
+      opacity: 0.18;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.6;
+    }
+
+    .motif.sun {
+      top: 12%;
+      right: 10%;
+      width: 180px;
+      height: 180px;
+    }
+
+    .motif.wave {
+      bottom: 5%;
+      left: 8%;
+      width: 220px;
+      height: 120px;
+    }
+
+    .cta {
+      display: grid;
+      gap: 0.75rem;
+      justify-items: center;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .form-group label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .form-group input[type="email"] {
+      padding: 0.9rem 1.1rem;
+      border: 1px solid rgba(15, 42, 61, 0.25);
+      border-radius: 999px;
+      min-width: min(340px, 90vw);
+      background-color: rgba(255, 255, 255, 0.7);
+      color: var(--navy);
+      transition: border-color 180ms ease;
+    }
+
+    .form-group input[type="email"]:focus {
+      outline: 3px solid rgba(196, 164, 98, 0.35);
+      border-color: var(--gold);
+    }
+
+    .cta button {
+      padding: 0.9rem 1.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background-color: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .cta button:focus {
+      outline: 3px solid rgba(196, 164, 98, 0.45);
+      outline-offset: 2px;
+    }
+
+    .cta button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(15, 42, 61, 0.08);
+    }
+
+    .cta small {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(15, 42, 61, 0.75);
+    }
+
+    .countdown {
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--forest);
+    }
+
+    .section {
+      padding: 4.5rem 1.75rem;
+      display: grid;
+      gap: 1.5rem;
+      justify-items: center;
+      text-align: center;
+      background-color: var(--ivory);
+    }
+
+    .section:nth-of-type(even) {
+      background-color: rgba(30, 58, 95, 0.05);
+    }
+
+    .section p {
+      max-width: 640px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .section ul li {
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .section ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .roots {
+      position: relative;
+    }
+
+    .roots-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--ocean);
+    }
+
+    .roots-icon svg {
+      width: 38px;
+      height: 38px;
+      stroke: var(--gold);
+    }
+
+    .gallery {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      width: min(100%, 900px);
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(15, 42, 61, 0.08);
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 42, 61, 0.0) 30%, rgba(15, 42, 61, 0.22));
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: var(--gold);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .consent {
+      font-size: 0.85rem;
+      color: rgba(15, 42, 61, 0.8);
+      text-align: left;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .consent label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+
+    .consent input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      margin-top: 0.2rem;
+    }
+
+    footer {
+      padding: 3rem 1.75rem;
+      background-color: var(--ivory);
+      border-top: 1px solid rgba(15, 42, 61, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    footer nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    footer button {
+      background: none;
+      border: none;
+      color: var(--ocean);
+      cursor: pointer;
+      padding: 0;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(15, 42, 61, 0.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+      padding: 1.5rem;
+      z-index: 20;
+    }
+
+    .modal[aria-hidden="false"] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--ivory);
+      color: var(--navy);
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 18px 45px rgba(15, 42, 61, 0.18);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--ocean);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 50%;
+      transform: translateX(50%);
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(15, 42, 61, 0.15);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 30;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(50%) translateY(-10px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        top: 1.5rem;
+      }
+      .hero {
+        padding-top: 5rem;
+      }
+      footer nav {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand-emblem" aria-label="The Itzae Experience">
+        <svg viewBox="0 0 60 60" role="img" aria-hidden="true">
+          <circle cx="30" cy="30" r="26" fill="none" stroke="var(--gold)" stroke-width="2"/>
+          <path d="M30 12c8 4 12 10 12 18s-4 14-12 18c-8-4-12-10-12-18s4-14 12-18z" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>The Itzae Experience</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <svg class="motif sun" viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M60 10l6 18 18-6-12 14 18 6-18 6 12 14-18-6-6 18-6-18-18 6 12-14-18-6 18-6-12-14 18 6z" opacity="0.7"/>
+        </svg>
+        <svg class="motif wave" viewBox="0 0 200 120" aria-hidden="true">
+          <path d="M10 70c30-30 60-30 90 0s60 30 90 0" stroke-linecap="round"/>
+          <path d="M10 90c30-30 60-30 90 0" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <div class="hero-content">
+          <h1 id="hero-title">A new way to experience Costa Rica</h1>
+          <p class="subheadline">Curated adventures at sea and in the wild. Designed with heart. Guided by tradition.</p>
+          <div class="cta">
+            <form id="notify-form" novalidate>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" aria-describedby="consent-text">
+                <button type="submit">Notify me</button>
+              </div>
+              <div class="consent" id="consent-text">
+                <label>
+                  <input type="checkbox" id="consent" name="consent" required>
+                  <span>I agree to receive launch updates and accept the privacy notice.</span>
+                </label>
+              </div>
+            </form>
+            <small>Private launch invitations only</small>
+          </div>
+          <p class="countdown" data-countdown>Launching soon — December 15</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="about-title">
+        <h2 id="about-title">Curated. Private. Unforgettable.</h2>
+        <p>From island picnics with chef-cooked BBQ to golden hour cruises and jungle trails, every itinerary is crafted to feel rare and personal.</p>
+        <ul>
+          <li>Ocean day to deserted island with chef BBQ</li>
+          <li>Guided nature hikes and hidden waterfalls</li>
+          <li>Tailored fishing and sunset cruises</li>
+        </ul>
+      </section>
+
+      <section class="section roots" aria-labelledby="roots-title">
+        <div class="roots-icon">
+          <svg viewBox="0 0 60 60" role="img" aria-hidden="true">
+            <path d="M30 6c12 4 18 12 18 24s-6 20-18 24c-12-4-18-12-18-24S18 10 30 6z" fill="none" stroke-width="2"/>
+            <path d="M22 24h16l-4 12-8-12-4 12" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h2 id="roots-title">Chorotega roots</h2>
+        </div>
+        <p>We collaborate with local communities and draw inspiration from Nicoya’s ancient craft to create journeys with real meaning. <a href="#" role="button">Learn more soon</a></p>
+      </section>
+
+      <section class="section" aria-labelledby="gallery-title">
+        <h2 id="gallery-title">Gallery tease</h2>
+        <div class="gallery">
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Sunlit waves crashing on Costa Rica shore" loading="lazy">
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80" alt="Tropical forest with waterfall" loading="lazy">
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80" alt="Luxury boat on calm ocean at sunset" loading="lazy">
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand-emblem" aria-hidden="true">
+        <svg viewBox="0 0 60 60" role="img" aria-hidden="true">
+          <circle cx="30" cy="30" r="26" fill="none" stroke="var(--gold)" stroke-width="2"/>
+          <path d="M30 12c8 4 12 10 12 18s-4 14-12 18c-8-4-12-10-12-18s4-14 12-18z" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Itzae</span>
+      </div>
+      <small>© The Itzae Experience. Costa Rica</small>
+      <nav aria-label="Footer">
+        <button type="button" data-modal-open="privacy">Privacy</button>
+        <button type="button" data-modal-open="contact">Contact</button>
+      </nav>
+    </footer>
+  </div>
+
+  <div class="modal" id="privacy-modal" aria-hidden="true" role="dialog" aria-labelledby="privacy-title">
+    <div class="modal-content">
+      <button class="close-modal" type="button" aria-label="Close privacy policy" data-modal-close>&times;</button>
+      <h3 id="privacy-title">Privacy Notice</h3>
+      <p>Your privacy matters. We collect your email solely to provide launch updates for The Itzae Experience. We respect your inbox and follow Costa Rican data protection standards.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="contact-modal" aria-hidden="true" role="dialog" aria-labelledby="contact-title">
+    <div class="modal-content">
+      <button class="close-modal" type="button" aria-label="Close contact information" data-modal-close>&times;</button>
+      <h3 id="contact-title">Contact</h3>
+      <p>Reach our concierge team at <a href="mailto:hola@itzaeexperience.com">hola@itzaeexperience.com</a>. We aim to reply within 48 hours.</p>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" id="toast">You’re on the list. See you at launch.</div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('notify-form');
+      const emailInput = document.getElementById('email');
+      const consentCheckbox = document.getElementById('consent');
+      const toast = document.getElementById('toast');
+      const countdownElement = document.querySelector('[data-countdown]');
+      const launchDate = new Date('2024-12-15T12:00:00-06:00');
+      const modalButtons = document.querySelectorAll('[data-modal-open]');
+      const modals = document.querySelectorAll('.modal');
+
+      function showToast() {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let valid = true;
+        if (!emailInput.value || !emailInput.checkValidity()) {
+          emailInput.focus();
+          emailInput.reportValidity();
+          valid = false;
+        }
+        if (!consentCheckbox.checked) {
+          consentCheckbox.focus();
+          valid = false;
+        }
+        if (!valid) return;
+        // TODO: Plug mailing list endpoint here.
+        showToast();
+        form.reset();
+      });
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = launchDate - now;
+        if (diff <= 0) {
+          countdownElement.textContent = 'Launching soon — Stay tuned';
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        countdownElement.textContent = `Countdown to launch: ${days}d ${hours}h`;
+      }
+
+      if (countdownElement) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000 * 60 * 30);
+      }
+
+      function toggleModal(id, open) {
+        const modal = document.getElementById(`${id}-modal`);
+        if (!modal) return;
+        modal.setAttribute('aria-hidden', open ? 'false' : 'true');
+        if (open) {
+          modal.querySelector('[data-modal-close]').focus();
+        }
+      }
+
+      modalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-modal-open');
+          toggleModal(target, true);
+        });
+      });
+
+      modals.forEach(modal => {
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            modal.setAttribute('aria-hidden', 'true');
+          }
+        });
+        modal.querySelector('[data-modal-close]').addEventListener('click', () => {
+          modal.setAttribute('aria-hidden', 'true');
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          modals.forEach(modal => modal.setAttribute('aria-hidden', 'true'));
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
