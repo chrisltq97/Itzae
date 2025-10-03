@@ -13,7 +13,8 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><mask id='m'><rect width='64' height='64' fill='white'/><circle cx='32' cy='32' r='18' fill='black'/></mask></defs><rect width='64' height='64' rx='12' ry='12' fill='%23C4A462' mask='url(%23m)'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --ivory: #F7F3EB;
@@ -44,11 +45,17 @@
 
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--ocean);
       background-color: var(--ivory);
-      line-height: 1.6;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body, p, li, span, .section-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #0F2A3D;
     }
 
     a {
@@ -575,7 +582,7 @@
       gap: 0.85rem;
       text-align: center;
       color: #1E3A5F;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'IBM Plex Mono', monospace;
     }
 
     .footer-logo {
@@ -586,7 +593,7 @@
 
     footer small {
       font-size: 0.9rem;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'IBM Plex Mono', monospace;
       color: #1E3A5F;
       letter-spacing: normal;
       text-transform: none;
